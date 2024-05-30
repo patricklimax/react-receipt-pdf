@@ -47,8 +47,8 @@ export default function Home() {
 
 
   return (
-    <main className="flex flex-col items-center gap-2 p-2 py-6">
-      <h1 className='w-full text-center font-bold text-2xl p-4'>
+    <main className="flex flex-col items-center gap-2 p-2 py-2">
+      <h1 className='w-full text-center font-bold text-2xl p-2'>
         EMISSOR DE RECIBO
       </h1>
       <Tabs defaultValue="receiptData" className="w-3/5">
@@ -128,7 +128,6 @@ export default function Home() {
               </Card>
             </div>
 
-
             <Card id='values' className='p-4'>
               <h1 className='font-semibold ml-1 mb-1'>Valor do Recibo</h1>
               <Input
@@ -173,7 +172,6 @@ export default function Home() {
                 {parseFloat(receiptValue).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
               </p>
 
-
               <p className='text-justify mb-20'>
                 Eu, <span className='font-semibold'>{benefiario}</span>, CPF nº <span className='font-semibold'>{cpfBeneficiario}</span>, DECLARO que recebi do Sr.(a) <span className='font-semibold'>{pagador}</span>, CPF nº <span className='font-semibold'>{cpfPagador}</span>, <span>Telefone: {telPagador},</span> a quantia de {parseFloat(receiptValue).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })} ({numero.porExtenso(receiptValue, numero.estilo.monetario)}), referente ao pagamento {description}.
               </p>
@@ -185,7 +183,6 @@ export default function Home() {
                 </div>
               }
 
-
               <p className='mb-16 text-center'>
                 {city}, {stateUF}, {date}.
               </p>
@@ -196,7 +193,6 @@ export default function Home() {
               </div>
             </div>
 
-
             <div className='flex justify-center items-center p-5 gap-32'>
               <Button variant="outline">Novo Recibo</Button>
               <Button onClick={openPDF}>Gerar Recibo</Button>
@@ -204,6 +200,11 @@ export default function Home() {
           </Card>
         </TabsContent>
       </Tabs>
+      <footer className='p-8 flex flex-col items-center justify-center text-xs'>
+        <p>Desenvolvido por Patrick Lima</p>
+        <p>(98) 98334-2518</p>
+        <p>Instagram: @patricklimax</p>
+      </footer>
     </main>
   );
 }
