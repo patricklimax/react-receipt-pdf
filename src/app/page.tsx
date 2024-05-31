@@ -199,7 +199,7 @@ export default function Home() {
 
         <TabsContent value="receiptView">
           <Card className='flex flex-col gap-5 p-4'>
-            <div className='p-20' id="wrapper">
+            <div className='p-4 md:p-24' id="wrapper">
 
               <h1 className='text-4xl text-center font-semibold'>
                 Recibo de Pagamento
@@ -209,8 +209,12 @@ export default function Home() {
                 {receiptValue ? parseFloat(receiptValue).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : <span className='text-red-600'>0,00</span>}
               </p>
 
+              <p className='text-justify mb-4'>
+                Eu, {beneficiario ? <span className='font-semibold'>{beneficiario}</span> : <span className='text-red-600'>Nome Beneficiário</span>}, CPF nº {cpfBeneficiario ? <span className='font-semibold'>{cpfBeneficiario}</span> : <span className='text-red-600'>XXX.XXX.XXX-XX</span>}, DECLARO que recebi de {pagador ? <span className='font-semibold'>{pagador}</span> : <span className='text-red-600'>Nome do Pagador</span>}, CPF nº {cpfPagador ? <span className='font-semibold'>{cpfPagador}</span> : <span className='text-red-600'>XXX.XXX.XXX-XX</span>}, Telefone: {telPagador ? <span className='font-semibold'>{telPagador}</span> : <span className='text-red-600'>(DDD) 9XXXX-XXXX</span>}, a quantia de {receiptValue ? parseFloat(receiptValue).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : <span className='text-red-600'>0,00</span>} ({receiptValue ? numero.porExtenso(receiptValue, numero.estilo.monetario) : <span className='text-red-600'>zero reais</span>}), referente ao pagamento {description ?  description  : <span className='text-red-600'>inserir descrição</span>}.
+              </p>
+
               <p className='text-justify mb-20'>
-                Eu, {beneficiario ? <span className='font-semibold'>{beneficiario}</span> : <span className='text-red-600'>Nome Beneficiário</span>}, CPF nº {cpfBeneficiario ? <span className='font-semibold'>{cpfBeneficiario}</span> : <span className='text-red-600'>XXX.XXX.XXX-XX</span>}, Telefone: {telBeneficiario ? <span className='font-semibold'>{telBeneficiario}</span> : <span className='text-red-600'>(DDD) 9XXXX-XXXX</span>}, DECLARO que recebi do Sr.(a) {pagador ? <span className='font-semibold'>{pagador}</span> : <span className='text-red-600'>Nome do Pagador</span>}, CPF nº {cpfPagador ? <span className='font-semibold'>{cpfPagador}</span> : <span className='text-red-600'>XXX.XXX.XXX-XX</span>}, Telefone: {telPagador ? <span className='font-semibold'>{telPagador}</span> : <span className='text-red-600'>(DDD) 9XXXX-XXXX</span>}, a quantia de {receiptValue ? parseFloat(receiptValue).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : <span className='text-red-600'>0,00</span>} ({receiptValue ? numero.porExtenso(receiptValue, numero.estilo.monetario) : <span className='text-red-600'>zero reais</span>}), referente ao pagamento {description ?  description  : <span className='text-red-600'>inserir descrição</span>}.
+                Para maior clareza firmo o presente recibo para que produza os seus efeitos, dando plena, rasa e irrevogável quitação, pelo valor recebido.
               </p>
 
               {
@@ -225,7 +229,8 @@ export default function Home() {
               </p>
               <div className='text-center'>
                 <p>{beneficiario}</p>
-                <p>CPF: {cpfBeneficiario}</p>
+                <p>{cpfBeneficiario}</p>
+                <p>{telBeneficiario}</p>
               </div>
             </div>
 
