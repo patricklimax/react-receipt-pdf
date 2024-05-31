@@ -26,7 +26,7 @@ export default function Home() {
   const [pagador, setPagador] = useState('')
   const [cpfPagador, setCpfPagador] = useState('')
   const [telPagador, setTelPagador] = useState('')
-  const [benefiario, setBenefiario] = useState('')
+  const [beneficiario, setBeneficiario] = useState('')
   const [cpfBeneficiario, setCpfBeneficiario] = useState('')
   const [telBeneficiario, setTelBeneficiario] = useState('')
   const [receiptValue, setReceiptValue] = useState('')
@@ -50,7 +50,7 @@ export default function Home() {
     setPagador('')
     setCpfPagador('')
     setTelPagador('')
-    setBenefiario('')
+    setBeneficiario('')
     setCpfBeneficiario('')
     setReceiptValue('')
     setTelBeneficiario('')
@@ -64,31 +64,23 @@ export default function Home() {
 
 
   return (
-    <main className="flex flex-col items-center gap-2 p-2 py-2">
-      <h1 className='w-full text-center font-bold text-2xl p-2'>
+    <main className="flex flex-col items-center">
+      <h1 className='w-full text-center font-bold text-2xl py-4'>
         EMISSOR DE RECIBO
       </h1>
-      <Tabs defaultValue="receiptData" className="w-3/5">
-        <TabsList className='flex'>
-          <TabsTrigger className='flex-1' value="receiptData">
-            DADOS DO NOVO RECIBO
-          </TabsTrigger>
-          <TabsTrigger className='flex-1' value="receiptView">
-            VISUALIZAR
-          </TabsTrigger>
-        </TabsList>
-
+     
+      <Tabs defaultValue="receiptData" className="w-full md:w-3/5">
         <TabsContent value="receiptData" >
           <Card className='flex flex-col gap-5 p-4'>
-            <div id='infos' className='flex gap-5'>
-              <Card id='pagador' className='p-4 w-1/2'>
+            <div id='infos' className='flex flex-col md:flex-row gap-4'>
+              <Card id='pagador' className='p-4 md:w-1/2'>
                 <h1 className='font-semibold ml-1 mb-1'>Dados do Pagador</h1>
                 <div className='flex flex-col gap-2'>
                   <Input
                     type="text"
                     value={pagador}
                     onChange={e => setPagador(e.target.value)}
-                    className='rounded p-2 text-sm w-full'
+                    
                     placeholder='Nome do Pagador' />
 
                   <div className='flex gap-2'>
@@ -96,19 +88,19 @@ export default function Home() {
                       type="number"
                       value={cpfPagador}
                       onChange={e => setCpfPagador(e.target.value)}
-                      className='rounded p-2 text-sm w-1/2 text-center'
+                      
                       placeholder='CPF' />
                     <Input
                       type="tel"
                       value={telPagador}
                       onChange={e => setTelPagador(e.target.value)}
-                      className='rounded p-2 text-sm w-1/2 text-center'
+                      
                       placeholder='Telefone' />
                   </div>
                 </div>
               </Card>
 
-              <Card className='p-4 w-1/2' id='beneficiario'>
+              <Card id='beneficiario' className='p-4 md:w-1/2'>
                 <h1 className='font-semibold ml-1 mb-1'>
                   Dados do Beneficiário
                 </h1>
@@ -116,9 +108,9 @@ export default function Home() {
 
                   <Input
                     type="text"
-                    value={benefiario}
-                    onChange={e => setBenefiario(e.target.value)}
-                    className='rounded p-2 text-sm w-full'
+                    value={beneficiario}
+                    onChange={e => setBeneficiario(e.target.value)}
+                   
                     placeholder='Nome do Beneficiário' />
 
                   <div className='flex gap-2'>
@@ -126,24 +118,24 @@ export default function Home() {
                       type="number"
                       value={cpfBeneficiario}
                       onChange={e => setCpfBeneficiario(e.target.value)}
-                      className='rounded p-2 text-sm w-1/2 text-center'
+                      
                       placeholder='CPF' />
                     <Input
                       type="tel"
                       value={telBeneficiario}
                       onChange={e => setTelBeneficiario(e.target.value)}
-                      className='rounded p-2 text-sm w-1/2 text-center'
+                      
                       placeholder='Telefone' />
                   </div>
                 </div>
               </Card>
             </div>
 
-            <div id='details' className='flex gap-5'>
+            <div id='details' className='flex flex-col md:flex-row gap-4'>
               <Card id='description' className='flex-1 p-4'>
                 <h1 className='font-semibold ml-1 mb-1'>Descrição do Serviço/Produto</h1>
                 <Textarea
-                  className='w-full rounded p-2 text-sm'
+                  
                   placeholder='Descreva aqui'
                   value={description}
                   onChange={e => setDescription(e.target.value)} />
@@ -152,21 +144,21 @@ export default function Home() {
               <Card id='observation' className='flex-1 p-4'>
                 <h1 className='font-semibold ml-1 mb-1'>Observação:</h1>
                 <Textarea
-                  className='w-full rounded p-2 text-sm'
+                 
                   placeholder='Descreva aqui'
                   value={observation}
                   onChange={e => setObservation(e.target.value)} />
               </Card>
             </div>
 
-            <div id='valueLocation' className='flex gap-5'>
-              <Card id='values' className='p-4 w-3/12'>
-                <h1 className='font-semibold ml-1 mb-1'>Valor</h1>
+            <div id='valueLocation' className='flex flex-col md:flex-row gap-4'>
+              <Card id='values' className='p-4 md:w-3/12 flex md:flex-col gap-4 md:gap-0 items-center md:items-start'>
+                <h1 className='font-semibold ml-1 md:mb-1'>Valor</h1>
                 <Input
                   type="number"
                   value={receiptValue}
                   onChange={e => setReceiptValue(e.target.value)}
-                  className='rounded p-2 text-sm'
+                 
                   placeholder='R$' />
               </Card>
 
@@ -177,19 +169,19 @@ export default function Home() {
                     type="text"
                     value={stateUF}
                     onChange={e => setStateUF(e.target.value)}
-                    className='rounded p-2 text-sm w-1/3 text-center'
+                    
                     placeholder='Estado' />
                   <Input
                     type="text"
                     value={city}
                     onChange={e => setCity(e.target.value)}
-                    className='rounded p-2 text-sm w-1/3 text-center'
+                    
                     placeholder='Município' />
                   <Input
                     type="date"
                     value={dataDay}
                     onChange={e => setDataDay(e.target.value)}
-                    className='rounded p-2 text-sm w-1/3 text-center'
+                   
                     placeholder='Data' />
                 </div>
               </Card>
@@ -204,6 +196,7 @@ export default function Home() {
 
         </TabsContent>
 
+
         <TabsContent value="receiptView">
           <Card className='flex flex-col gap-5 p-4'>
             <div className='p-20' id="wrapper">
@@ -213,11 +206,11 @@ export default function Home() {
               </h1>
 
               <p className='text-right font-semibold text-3xl my-16'>
-                {parseFloat(receiptValue).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
+                {receiptValue ? parseFloat(receiptValue).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : <span className='text-red-600'>0,00</span>}
               </p>
 
               <p className='text-justify mb-20'>
-                Eu, <span className='font-semibold'>{benefiario}</span>, CPF nº <span className='font-semibold'>{insertMaskCPF(cpfBeneficiario)}</span>, Telefone: {telBeneficiario}, DECLARO que recebi do Sr.(a) <span className='font-semibold'>{pagador}</span>, CPF nº <span className='font-semibold'>{insertMaskCPF(cpfPagador)}</span>, Telefone: {telPagador}, a quantia de {parseFloat(receiptValue).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })} ({numero.porExtenso(receiptValue, numero.estilo.monetario)}), referente ao pagamento {description}.
+                Eu, {beneficiario ? <span className='font-semibold'>{beneficiario}</span> : <span className='text-red-600'>Nome Beneficiário</span>}, CPF nº {cpfBeneficiario ? <span className='font-semibold'>{cpfBeneficiario}</span> : <span className='text-red-600'>XXX.XXX.XXX-XX</span>}, Telefone: {telBeneficiario ? <span className='font-semibold'>{telBeneficiario}</span> : <span className='text-red-600'>(DDD) 9XXXX-XXXX</span>}, DECLARO que recebi do Sr.(a) {pagador ? <span className='font-semibold'>{pagador}</span> : <span className='text-red-600'>Nome do Pagador</span>}, CPF nº {cpfPagador ? <span className='font-semibold'>{cpfPagador}</span> : <span className='text-red-600'>XXX.XXX.XXX-XX</span>}, Telefone: {telPagador ? <span className='font-semibold'>{telPagador}</span> : <span className='text-red-600'>(DDD) 9XXXX-XXXX</span>}, a quantia de {receiptValue ? parseFloat(receiptValue).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : <span className='text-red-600'>0,00</span>} ({receiptValue ? numero.porExtenso(receiptValue, numero.estilo.monetario) : <span className='text-red-600'>zero reais</span>}), referente ao pagamento {description ?  description  : <span className='text-red-600'>inserir descrição</span>}.
               </p>
 
               {
@@ -231,7 +224,7 @@ export default function Home() {
                 {city ? city : <span className='text-red-600'>Cidade</span>}, {stateUF ? stateUF : <span className='text-red-600'>Estado</span>}, {dataDay ? datedReceipt : <span className='text-red-600'>Data</span>}.
               </p>
               <div className='text-center'>
-                <p>{benefiario}</p>
+                <p>{beneficiario}</p>
                 <p>CPF: {cpfBeneficiario}</p>
               </div>
             </div>
@@ -241,6 +234,15 @@ export default function Home() {
             </div>
           </Card>
         </TabsContent>
+
+        <TabsList className='w-full mt-5'>
+          <TabsTrigger className='w-1/2' value="receiptData">
+            PREENCHER RECIBO
+          </TabsTrigger>
+          <TabsTrigger className='w-1/2' value="receiptView">
+            VISUALIZAR
+          </TabsTrigger>
+        </TabsList>
       </Tabs>
       <footer className='p-8 flex flex-col items-center justify-center text-xs'>
         <p>Desenvolvido por Patrick Lima</p>
